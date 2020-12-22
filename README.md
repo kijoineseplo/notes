@@ -1,2 +1,2 @@
-# notes
-Contains all my notes
+# Notes
+- [Reinforcment Learning](https://github.com/atin/notes/edit/main/RL.md)
