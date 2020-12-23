@@ -12,14 +12,14 @@ In the _K-armed_ bandit problem, we have an agent who chooses between _k_ action
 ##### Value of an action
 
 Value of an action is defined as the expected reward the agent will receive on choosing that action.
-$$q(a) \coloneqq E[R_t \vert A_t=a] \forall a \in \{1,...,k\}=\sum_{a}p(r \vert a)r$$
+$$q(a) \dot{=} E[R_t \vert A_t=a] \forall a \in \{1,...,k\}=\sum_{a}p(r \vert a)r$$
 $q(a)$ is not known, so we have to estimate it. The goal of the agent is to maximize the expected reward i.e. $q(a)$,
 $$a_{max} = \argmax_{a}q(a)$$
 
 #### Sample-average Method
 
 Sample average of an action is defined as the ratio of sum of rewards when action $a$ was taken before time $t$ to the number of times action $a$ was taken before time $t$.
-$$Q_t(a)\coloneqq \frac{\sum_{i=1}^{t-1}R_i}{t-1}$$
+$$Q_t(a)\dot{=} \frac{\sum_{i=1}^{t-1}R_i}{t-1}$$
 
 #### Action selection
 
@@ -89,6 +89,17 @@ Optimistic initial values only causes early exploration, this means agents won't
 Quoting "Reinforcement Learning - An Introduction"
 
 > Exploration is needed because there is always uncertainty about the accuracy of the action-value estimates. The greedy actions are those that look best at present, but some of the other actions may actually be better. $\epsilon$-greedy action selection forces the non-greedy actions to be tried, but indiscriminately, with no preference for those that are nearly greedy or particularly uncertain. It would be better to select among the non-greedy actions according to their potential for actually being optimal, taking into account both how close their estimates are to being maximal and the uncertainties in those estimates. One effective way of doing this is to select actions according to
-> $$A_t \coloneqq \argmax_{a}\left[Q_t(a)+c\sqrt{\frac{\ln t}{N_t(a)}}\right],$$
+> $$A_t \dot{=} \argmax_{a}\left[Q_t(a)+c\sqrt{\frac{\ln t}{N_t(a)}}\right],$$
 
 Here $N_t(a)$ = number of times that action a has been selected prior to time $t$, $c$ controls the degree of exploration. If $N_t(a)=0$, then $a$ is considered to be a maximizing action.
+
+## Markov Decision Processes
+
+MDPs are a classical formalization of sequential decision making, where current actions also influence subsequent situations and through those future rewards. Thus MDPs involve delayed rewards and the need to tradeoff immediate and delayed reward.
+
+In a finite MDP, the sets of states, actions and rewards all have a finite number of elements. In this case, the random variable $R_t$ and $S_t$ have well defined discrete probability distributions dependent only on the preceding state and action.
+
+$$p(s', r \vert s, a) \dot{=} Prob\{S_t=s', R_t=r \vert S_{t-1}=s,A_{t-1}=a\}$$
+
+$$\sum_{s' \in S}\sum_{r \in R}{p(s',r \vert s, a)}=1~~\forall s \in S, a \in A(s)$$
+
