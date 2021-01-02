@@ -103,3 +103,22 @@ $$p(s', r \vert s, a) \dot{=} Prob\{S_t=s', R_t=r \vert S_{t-1}=s,A_{t-1}=a\}$$
 
 $$\sum_{s' \in S}\sum_{r \in R}{p(s',r \vert s, a)}=1~~\forall s \in S, a \in A(s)$$
 
+### The Reward Hypothesis
+In reinforcement learning, the goal of the agent is formalized in terms of rewards. At each time step the reward is a simple number and the agent's goal is to maximize the total reward. This means maximizing not immediate reward, but cumulative reward. This informal idea is called the $reward$ $hypothesis$:
+From *Reinforcement Learning An Introduction* 2nd edition by *Richard S. Sutton* and *Andrew G. Barto*
+> That all of what we mean by goals and purposes can be well thought of as the maximization of the expected value of the cumulative sum of a received scalar signal (called reward).
+
+#### Episodic and continuous tasks
+In episodic tasks the agent-environment interaction breaks into subsequences or as we call them $episodes$, such as a game, or a maze, or any kind of repeated interaction. Each episode starts in a standard state and ends in a different, unique state called the $terminal$ $state$, followed by another episode. Each episode begins independently of the previous episodes. Tasks with episodes of this kind are called $episodic$ $tasks$.
+The cumulative reward for episodic tasks can be defined as sum of rewards of each episodes
+$$G_t \dot{=} R_{t+1}+R_{t+2}+...+R_T,$$
+where T is a final time step.
+
+On the other hand, in many cases the agent-environment interaction does not break into identifiable episodes, but goes on continuously. These kind of tasks are called $continuing$ $tasks$.
+The cumulative reward formulation used for episodic tasks can't be used for continuing tasks because the final time step would be $T=\infty$, and hence the total reward could itself be infinite. Thus we use a slightly more complex definition of cumulative reward. Here we use the concept of $discounting$. Here the agent tries to select action so that the sum of the discounted reward it gets over the future is maximized.
+$$G_t\dot{=}R_{t+1}+\gamma R_{t+2}+\gamma^2 R_{t+3}+...=\sum_{k=0}^{\infty}{\gamma^k R_{t+k+1}}$$,
+where $0 \leq \gamma \leq 1$ is a parameter, called the $discount$ $rate$.
+We can also write $G_t$ in terms of $G_{t+1}$
+$$G_T=R_{t+1}+\gamma G_{t+1}$$
+
+
