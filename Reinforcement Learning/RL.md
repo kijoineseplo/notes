@@ -104,11 +104,14 @@ $$p(s', r \vert s, a) \dot{=} Prob\{S_t=s', R_t=r \vert S_{t-1}=s,A_{t-1}=a\}$$
 $$\sum_{s' \in S}\sum_{r \in R}{p(s',r \vert s, a)}=1~~\forall s \in S, a \in A(s)$$
 
 ### The Reward Hypothesis
+
 In reinforcement learning, the goal of the agent is formalized in terms of rewards. At each time step the reward is a simple number and the agent's goal is to maximize the total reward. This means maximizing not immediate reward, but cumulative reward. This informal idea is called the $reward$ $hypothesis$:
-From *Reinforcement Learning An Introduction* 2nd edition by *Richard S. Sutton* and *Andrew G. Barto*
+From _Reinforcement Learning An Introduction_ 2nd edition by _Richard S. Sutton_ and _Andrew G. Barto_
+
 > That all of what we mean by goals and purposes can be well thought of as the maximization of the expected value of the cumulative sum of a received scalar signal (called reward).
 
 #### Episodic and continuous tasks
+
 In episodic tasks the agent-environment interaction breaks into subsequences or as we call them $episodes$, such as a game, or a maze, or any kind of repeated interaction. Each episode starts in a standard state and ends in a different, unique state called the $terminal$ $state$, followed by another episode. Each episode begins independently of the previous episodes. Tasks with episodes of this kind are called $episodic$ $tasks$.
 The cumulative reward for episodic tasks can be defined as sum of rewards of each episodes
 $$G_t \dot{=} R_{t+1}+R_{t+2}+...+R_T,$$
@@ -121,4 +124,12 @@ where $0 \leq \gamma \leq 1$ is a parameter, called the $discount$ $rate$.
 We can also write $G_t$ in terms of $G_{t+1}$
 $$G_T=R_{t+1}+\gamma G_{t+1}$$
 
+### Policies and Value Functions
 
+A $policy$ is a mapping from states to probabilities of selecting each possible action. If the agent is following policy $\pi$ at some time $t$, then $\pi(a \vert s)$ is the probability that $A_t=a$ if $S_t=s$.
+
+The $value$ $function$ of a state $s$ under a policy $\pi$, denoted $v_{\pi}(s)$, is the expected return when starting in state $s$ and following policy $\pi$ thereafter. For MDPs, we can define $v_{\pi}$ as
+$$v_{\pi}(s)\dot{=}\mathbb{E}_{\pi}[G_t \vert S_t=s]=\mathbb{E}_{\pi}\left[\sum_{k=0}^{\infty}{\gamma^k R_{t+k+1} \bigg\vert S_t=s}\right]\text{ , for all }s \in \mathcal{S}$$
+The function $v_{\pi}$ is called the $state$-$value$ $function$ for policy $\pi$.
+Similarly the value of taking action $a$ in state $s$ under a policy $\pi$, denoted as $q_{\pi}(s,a)$, as the expected return starting from $s$, taking the action $a$, and thereafter following policy $\pi$:
+$$q_{\pi}(s,a)\dot{=}\mathbb{E}_{\pi}[G_t \vert S_t=s, A_t=a]=\mathbb{E}_{\pi}\left[\sum_{k=0}^{\infty}{\gamma^k R_{t+k+1} \bigg\vert S_t=s, A_t=a}\right]\text{ , for all }s \in \mathcal{S}$$
