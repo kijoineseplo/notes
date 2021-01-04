@@ -1,5 +1,5 @@
 ---
-title: RL Notes
+title: Reinforcement Learning
 output: pdf_document
 ---
 
@@ -93,6 +93,12 @@ Quoting "Reinforcement Learning - An Introduction"
 
 Here $N_t(a)$ = number of times that action a has been selected prior to time $t$, $c$ controls the degree of exploration. If $N_t(a)=0$, then $a$ is considered to be a maximizing action.
 
+##### Gradient Bandit Algorithms
+
+In this algorithm the agent learns a numerical preference for each action $a$, denoted by $H_t(a)$. The larger the preference, the more often that action is taken. In this algorithm only the relative preference os one action over another is important. The action probabilities are determined according to a $soft$-$max$ $distribution$ (Gibbs or Boltzmann distribution) as follows:
+$$\text(Pr)\{a_t=a\}\dot{=}\frac{e^{H_t(b)}}{\sum_{b=1}^{k}{e^{H_t(b)}}}=\pi_t(a)$$
+Here $\pi_t(a)$ denoted the probability of taking action $a$ at time $t$. Initially all action have same preferences so that they all have equal probability of being selected.
+
 ## Markov Decision Processes
 
 MDPs are a classical formalization of sequential decision making, where current actions also influence subsequent situations and through those future rewards. Thus MDPs involve delayed rewards and the need to tradeoff immediate and delayed reward.
@@ -133,3 +139,27 @@ $$v_{\pi}(s)\dot{=}\mathbb{E}_{\pi}[G_t \vert S_t=s]=\mathbb{E}_{\pi}\left[\sum_
 The function $v_{\pi}$ is called the $state$-$value$ $function$ for policy $\pi$.
 Similarly the value of taking action $a$ in state $s$ under a policy $\pi$, denoted as $q_{\pi}(s,a)$, as the expected return starting from $s$, taking the action $a$, and thereafter following policy $\pi$:
 $$q_{\pi}(s,a)\dot{=}\mathbb{E}_{\pi}[G_t \vert S_t=s, A_t=a]=\mathbb{E}_{\pi}\left[\sum_{k=0}^{\infty}{\gamma^k R_{t+k+1} \bigg\vert S_t=s, A_t=a}\right]\text{ , for all }s \in \mathcal{S}$$
+
+### Bellman Equation
+
+We can derive a recursive relation of the state-value function, called the $state$-$value$ $bellman$ $equation$.
+
+$$
+\begin{aligned}
+  v_{\pi}(s) &= \mathbb{E}_{\pi}[G_t \vert S_t=s]\\
+  &= \mathbb{E}_{\pi}[R_{t+1} + \gamma G_{t+1} \vert S_t=s]\\
+  &= \sum_{a}{\pi(a \vert s)}\sum_{s'}\sum_{r}{p(s', r \vert s, a)\bigg[r+\gamma\mathbb{E}_\pi[G_{t+1} \vert S_{t+1}=s']\bigg]}\\
+  &= \sum_{a}{\pi(a \vert s)}\sum_{s'}\sum_{r}{p(s', r \vert s, a)\bigg[r+\gamma v_\pi(s')\bigg]} ~~~ \forall s \in S\\
+\end{aligned}
+$$
+
+Similarly we can also derive a recursive relation of the action-value function, called the $action$-$value$ $bellman$ $equation$.
+
+$$
+\begin{aligned}
+  q_{\pi}(s, a) &= \mathbb{E}_{\pi}[G_t \vert S_t=s, A_t=a]\\
+  &= \sum_{s'}\sum_{r}{p(s', r \vert s, a)\bigg[r+\gamma\mathbb{E}_\pi[G_{t+1} \vert S_{t+1}=s']\bigg]}\\
+  &= \sum_{s'}\sum_{r}{p(s', r \vert s, a)\bigg[r+\gamma v_\pi(s')\bigg]}\\
+  &= \sum_{s'}\sum_{r}{p(s', r \vert s, a)\bigg[r+\gamma \sum_{a'}\pi(a' \vert s') q_\pi(s', a') \bigg]}\\
+\end{aligned}
+$$
