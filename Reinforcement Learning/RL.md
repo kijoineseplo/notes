@@ -140,7 +140,7 @@ The function $v_{\pi}$ is called the $state$-$value$ $function$ for policy $\pi$
 Similarly the value of taking action $a$ in state $s$ under a policy $\pi$, denoted as $q_{\pi}(s,a)$, as the expected return starting from $s$, taking the action $a$, and thereafter following policy $\pi$:
 $$q_{\pi}(s,a)\dot{=}\mathbb{E}_{\pi}[G_t \vert S_t=s, A_t=a]=\mathbb{E}_{\pi}\left[\sum_{k=0}^{\infty}{\gamma^k R_{t+k+1} \bigg\vert S_t=s, A_t=a}\right]\text{ , for all }s \in \mathcal{S}$$
 
-### Bellman Equation
+### Bellman Equation Derivation
 
 We can derive a recursive relation of the state-value function, called the $state$-$value$ $bellman$ $equation$.
 
@@ -163,3 +163,13 @@ $$
   &= \sum_{s'}\sum_{r}{p(s', r \vert s, a)\bigg[r+\gamma \sum_{a'}\pi(a' \vert s') q_\pi(s', a') \bigg]}\\
 \end{aligned}
 $$
+
+### Optimal Policies & Value Functions
+
+For solving a reinforcement learning task we need to find a policy that achieves a lot of reward over the long run. For finite MDPs, we can define an optimal policy in the following way.
+A policy $\pi$ is defined to be better than or equal to a policy $\pi'$ if its expected return is greater than or equal to that of $\pi'$ for all states. In other words, $\pi \geq \pi' \iff v_\pi(s) \geq v_{\pi'}(s)~\forall s \in S$
+There is always at least one policy that is better than or equal to all other policies. This is an $optimal$ $policy$. However there can be more than one optimal policies, we denote all the optimal policies by $\pi_*$. They share the same state-value function, called the $optimal$ $state$-$value$ $function$, denoted $v_*$, and defined as
+$$v_*(s) \dot{=} \max_{\pi}{v_\pi(s)},~\forall s \in S$$
+Optimal policies also share the same $optimal$ $action$-$value$ $function$ $q_*$ defined as
+$$q_*(s,a) \dot{=} \max_{\pi}{q_\pi(s,a),~\forall s \in S, a \in A(s)}$$
+
