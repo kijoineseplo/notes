@@ -4,12 +4,13 @@ Notes of Divide and Conquer, Sorting and Searching
 
 ### Randomized Selection
 
-**Problem** - Selecting *i'th* minimum element from an array.
+**Problem** - Selecting _i'th_ minimum element from an array.
 
-**Naive Solution** - First sort then choose *i'th* element of the array.
+**Naive Solution** - First sort then choose _i'th_ element of the array.
 Time Complexity - $\mathcal{O}(n\log n)$
 
 **Better Solution**
+
 ```python
 from random import randint
 def RSelect(arr, i):
@@ -24,6 +25,3 @@ def RSelect(arr, i):
   else:
     return RSelect(arr[pivot:], i - pivot)
 ```
-
-
-

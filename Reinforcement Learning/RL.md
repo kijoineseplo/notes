@@ -172,4 +172,3 @@ There is always at least one policy that is better than or equal to all other po
 $$v_*(s) \dot{=} \max_{\pi}{v_\pi(s)},~\forall s \in S$$
 Optimal policies also share the same $optimal$ $action$-$value$ $function$ $q_*$ defined as
 $$q_*(s,a) \dot{=} \max_{\pi}{q_\pi(s,a),~\forall s \in S, a \in A(s)}$$
-
