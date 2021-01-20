@@ -1,6 +1,6 @@
 title:               Atin Bainada
 description:         Desc
-baseurl:             "notes"
+baseurl:             "/notes"
 url:                 ""
 me:                  /about/
 anon-form:           https://forms.gle/oj5BvZftnLP5qgBy5
