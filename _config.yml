@@ -1,0 +1,60 @@
+title:               Atin Bainada
+description:         Desc
+baseurl:             ""
+url:                 ""
+me:                  /about/
+anon-form:           https://forms.gle/oj5BvZftnLP5qgBy5
+repo:                https://github.com/atin/atin.github.io
+# Navigation links
+nav-links:
+  - title:           Home
+    url:             /
+  - title:           Projects
+    url:             /projects/
+  - title:           Notes
+    url:             /notes/
+  - title:           Resume
+    url:             /resume/
+    sublinks:
+    - title:         1 page
+      url:           /resume/1pg.pdf/
+    - title:         2 page
+      url:           /resume/2pg.pdf/
+  - title:           About me
+    url:             /about/
+
+
+
+# Social Links
+social-links:
+  - url:             http://github.com/atin
+    icon:            /assets/img/GitHub/PNG/GitHub-Mark-32px.png
+  - url:             http://linkedin.com/in/atin
+    icon:            /assets/img/GitHub/PNG/GitHub-Mark-32px.png
+  - url:             https://stackoverflow.com/users/12011589/atin
+    icon:            /assets/img/icons/stackoverflow.svg
+  - url:             https://www.kaggle.com/atin10
+    icon:            /assets/img/icons/mathexchange.png
+
+author:
+  name:              Atin Bainada
+  url:               atin.github.io
+  email:             atinbainada@iitb.ac.in
+
+# Custom vars
+avatar:
+  normal:            /assets/img/avatar.png
+  with_mask:         /assets/img/avatar_with_mask.png
+version: 0.0.1
+google_analytics_id: G-E3ZB3QDST6
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jemoji
+# Dependencies
+markdown:            kramdown
+# highlighter:         rogue
+# permalink:           pretty
+# paginate:            5
+# paginate_path:       "/blog/page:num/"s
