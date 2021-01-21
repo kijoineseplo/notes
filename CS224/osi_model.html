@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+    
+      CS 224 - Computer Networks &middot; Atin Bainada
+    
+  </title>
+
+  
+  <link rel="canonical" href="/notes/CS224/osi_model.html" />
+  
+
+  
+
+  <link rel="stylesheet" href="/notes/assets/css/main.css"">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400"
+  />
+
+  <!-- <link rel="apple-touch-icon" sizes="144x144" href="/notes"> -->
+  <link
+    rel="icon"
+    href="/notes/assets/img/avatar.png"
+    type="image/png"
+  />
+
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/notes/atom.xml"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+    crossorigin="anonymous"
+  />
+
+  <!-- The loading of KaTeX is deferred to speed up page rendering -->
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
+    integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- To automatically render math in text elements, include the auto-render extension: -->
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+    integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
+    crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"
+  ></script>
+
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3ZB3QDST6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-E3ZB3QDST6');
+  </script>
+  
+</head>
+
+
+  <body>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" />
+
+<div class="sidebar" id="sidebar">
+  <header class="avatar">
+    <a href="/about/">
+      <img src="/assets/img/avatar.png" />
+    </a>
+  </header>
+  <nav class="sidebar-nav">
+    <ul>
+      
+      <li class="nav-item ">
+        <a class="nav-link" href="/">
+          <span>HOME</span>
+        </a>
+      </li>
+      
+      <li class="nav-item ">
+        <a class="nav-link" href="/projects/">
+          <span>PROJECTS</span>
+        </a>
+      </li>
+      
+      <li class="nav-item ">
+        <a class="nav-link" href="/notes/">
+          <span>NOTES</span>
+        </a>
+      </li>
+      
+      <li class="nav-item ">
+        <a class="nav-link" href="/resume/">
+          <span>RESUME</span>
+        </a>
+      </li>
+      
+      <li class="nav-item ">
+        <a class="nav-link" href="/about/">
+          <span>ABOUT ME</span>
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+</div>
+
+
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/notes/" title="Home">Atin Bainada</a>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content"><div class="post">
+  <h1 class="post-title">CS 224 - Computer Networks</h1>
+  <span class="post-date"></span>
+  <h2 id="the-osi-model">The OSI Model</h2>
+
+<p>The <strong>Open Systems Interconnection</strong> (OSI) model is a conceptual model, created by the International Organization for Standardization. It characterize the communication functions of a computer system irrespective of the system’s underlying internal structure and technology.</p>
+
+<p>TL;DR - The OSI model provides a standard for different computer systems to communicate using standard protocols.</p>
+
+<h3 id="7-layers-of-the-osi-model">7 Layers of the OSI Model</h3>
+
+<p>The following table from this <a href="https://en.wikipedia.org/wiki/OSI_model">wikipedia article</a> summarizes the functions of each layer.</p>
+
+<table class="wikitable" style="margin: 1em auto 1em auto;">
+<caption>OSI model
+</caption>
+<tbody><tr>
+<th colspan="3">Layer
+</th>
+<th><a href="https://en.wikipedia.org/wiki/Protocol_data_unit" title="Protocol data unit">Protocol data unit</a> (PDU)
+</th>
+<th>Function
+</th></tr>
+<tr>
+<th rowspan="4">Host<br />layers
+</th>
+<td style="background:#d8ec9b;">7
+</td>
+<td style="background:#d8ec9b;"><a href="https://en.wikipedia.org/wiki/Application_layer" title="Application layer">Application</a>
+</td>
+<td style="background:#d8ec9c;" rowspan="3"><a href="https://en.wikipedia.org/wiki/Data_(computing)" title="Data (computing)">Data</a>
+</td>
+<td style="background:#d8ec9c;">High-level <a href="https://en.wikipedia.org/wiki/API" title="API">APIs</a>, including resource sharing, remote file access
+</td></tr>
+<tr>
+<td style="background:#d8ec9b;">6
+</td>
+<td style="background:#d8ec9b;"><a href="https://en.wikipedia.org/wiki/Presentation_layer" title="Presentation layer">Presentation</a>
+</td>
+<td style="background:#d8ec9b;">Translation of data between a networking service and an application; including <a href="https://en.wikipedia.org/wiki/Character_encoding" title="Character encoding">character encoding</a>, <a href="https://en.wikipedia.org/wiki/Data_compression" title="Data compression">data compression</a> and <a href="https://en.wikipedia.org/wiki/Encryption" title="Encryption">encryption/decryption</a>
+</td></tr>
+<tr>
+<td style="background:#d8ec9b;">5
+</td>
+<td style="background:#d8ec9b;"><a href="https://en.wikipedia.org/wiki/Session_layer" title="Session layer">Session</a>
+</td>
+<td style="background:#d8ec9b;">Managing communication <a href="https://en.wikipedia.org/wiki/Session_(computer_science)" title="Session (computer science)">sessions</a>, i.e., continuous exchange of information in the form of multiple back-and-forth transmissions between two nodes
+</td></tr>
+<tr>
+<td style="background:#e7ed9c;">4
+</td>
+<td style="background:#e7ed9c;"><a href="https://en.wikipedia.org/wiki/Transport_layer" title="Transport layer">Transport</a>
+</td>
+<td style="background:#e7ed9c;"><a href="https://en.wikipedia.org/wiki/Packet_segmentation" title="Packet segmentation">Segment</a>, <a href="https://en.wikipedia.org/wiki/Datagram" title="Datagram">Datagram</a>
+</td>
+<td style="background:#e7ed9c;">Reliable transmission of data segments between points on a network, including <a href="https://en.wikipedia.org/wiki/Packet_segmentation" title="Packet segmentation">segmentation</a>, <a href="https://en.wikipedia.org/wiki/Acknowledgement_(data_networks)" title="Acknowledgement (data networks)">acknowledgement</a> and <a href="https://en.wikipedia.org/wiki/Multiplexing" title="Multiplexing">multiplexing</a>
+</td></tr>
+<tr>
+<th rowspan="3">Media<br />layers
+</th>
+<td style="background:#eddc9c;">3
+</td>
+<td style="background:#eddc9c;"><a href="https://en.wikipedia.org/wiki/Network_layer" title="Network layer">Network</a>
+</td>
+<td style="background:#eddc9c;"><a href="https://en.wikipedia.org/wiki/Network_packet" title="Network packet">Packet</a>
+</td>
+<td style="background:#eddc9c;">Structuring and managing a multi-node network, including <a href="https://en.wikipedia.org/wiki/Address_space" title="Address space">addressing</a>, <a href="https://en.wikipedia.org/wiki/Routing" title="Routing">routing</a> and <a href="https://en.wikipedia.org/wiki/Network_traffic_control" title="Network traffic control">traffic control</a>
+</td></tr>
+<tr>
+<td style="background:#e9c189;">2
+</td>
+<td style="background:#e9c189;"><a href="https://en.wikipedia.org/wiki/Data_link_layer" title="Data link layer">Data link</a>
+</td>
+<td style="background:#e9c189;"><a href="https://en.wikipedia.org/wiki/Frame_(networking)" title="Frame (networking)">Frame</a>
+</td>
+<td style="background:#e9c189;">Reliable transmission of data frames between two nodes connected by a physical layer
+</td></tr>
+<tr>
+<td style="background:#e9988a;">1
+</td>
+<td style="background:#e9988a;"><a href="https://en.wikipedia.org/wiki/Physical_layer" title="Physical layer">Physical</a>
+</td>
+<td style="background:#e9988a;"><a href="https://en.wikipedia.org/wiki/Bit" title="Bit">Bit</a>, <a href="https://en.wikipedia.org/wiki/Symbol_rate#Symbols" title="Symbol rate">Symbol</a>
+</td>
+<td style="background:#e9988a;">Transmission and reception of raw bit streams over a physical medium
+</td></tr></tbody></table>
+
+<h4 id="layer-1-physical-layer">Layer 1: Physical Layer</h4>
+
+<p>This layer is responsible for the transmission and reception of raw data between a device and a physical transmission medium, such as cables and switches. It also converts the digital data into electrical, radio or optical signals to make it transferable via a physical medium.</p>
+
+<h4 id="layer-2-data-link-layer">Layer 2: Data Link Layer</h4>
+
+<p>The data link layer provides node-to-node data transfer. In this layer data is transferred between two devices on the SAME network. DLL takes packet from the network layer and breaks them into smaller pieces called frames. DLL detects and possibly corrects errors that may occur in the physical layer.</p>
+
+<h4 id="layer-3-network-layer">Layer 3: Network Layer</h4>
+
+<p>The network layer is responsible for transferring data packets between two different networks. It receives frames from the DL layer, and delivers them to their intended destinations based on the node’s logical address, such as IP address. It also breaks segments from the transport layer into packers on the sending device and reassembles these packets on the receiving device. This layer is also responsible for finding the best physical path for the data to reach its destination, this is done by special nodes in the layer known as routers and this process is called routing.</p>
+
+<h4 id="layer-4-transport-layer">Layer 4: Transport Layer</h4>
+
+<p>The transport layer manages the delivery and error checking of data packages. It controls the size, sequencing and the transfer of data between systems and hosts. It also provides the acknowledgement of the successful data transmission and sends the next data if no error occurred. Although not developed under the OSI Model, the Transmission Control Protocol (TCP) and the User Datagram Protocol (UDP) are commonly categorized as layer-4 protocols within OSI. Transport Layer Security (TLS) provide security at this layer.</p>
+
+<h4 id="layer-5-session-layer">Layer 5: Session Layer</h4>
+
+<p>The session layer controls the connections between computers. It establishes, manages and terminates the connections between two computers. This layer ensures that the session stays open long enough to transfer all the data being exchanged, and then promptly closes the session in order to avoid wasting resources. This layer is also responsible for session checkpointing and recovery in case the systems get disconnected in the middle of a data transfer. Session layer also include authentication and reconnection.</p>
+
+<h4 id="layer-6-presentation-layer">Layer 6: Presentation Layer</h4>
+
+<p>The presentation layer prepares the data so that it can be used by the application layer. It formats, translates data for the application layer based on the syntax or semantics that the application accepts. Because of this, it is also called syntax layer. It can also handle encryption and decryption of data. It also compress the data received from the application layer before sending it to Session Layer.</p>
+
+<h4 id="layer-7-application-layer">Layer 7: Application Layer</h4>
+
+<p>This layer is closet to the end user and both the user and the application layer interact directly with the application. Just for clarification, the applications are not part of the application layer, rather this layer is responsible for the protocols and data manipulation that the software uses to present data to the user. Some of the protocols in Application layer are HTTP, FTP, SMPT, Telnet, DNS etc.</p>
+
+</div>
+
+
+</div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle">
+      <i class="fas fa-bars fa-fw"></i>
+    </label>
+
+    <footer class="footer container">
+  <hr />
+  <div class="social-links">
+    
+    <a class="social-link github" href="http://github.com/atin">
+      <img src="/assets/img/icons/github.svg"></img>
+    </a>
+    
+    <a class="social-link stack-overflow" href="https://stackoverflow.com/users/12011589/atin">
+      <img src="/assets/img/icons/stackoverflow.svg"></img>
+    </a>
+    
+    <a class="social-link linkedin" href="http://linkedin.com/in/atin">
+      <img src="/assets/img/icons/linkedin.svg"></img>
+    </a>
+    
+    <a class="social-link kaggle" href="https://www.kaggle.com/atin10">
+      <img src="/assets/img/icons/kaggle.svg"></img>
+    </a>
+    
+  </div>
+</footer>
+
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
