@@ -61,10 +61,7 @@ google_analytics_id: G-E3ZB3QDST6
 exclude: [vendor]
 
 plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
   - jemoji
-  - jekyll-remote-theme
 
 markdown:            kramdown
 # highlighter:         rogue
