@@ -27,28 +27,35 @@ nav-links:
 
 # Social Links
 social-links:
-  - url:             http://github.com/atin
-    icon:            /assets/img/GitHub/PNG/GitHub-Mark-32px.png
-  - url:             http://linkedin.com/in/atin
-    icon:            /assets/img/GitHub/PNG/GitHub-Mark-32px.png
-  - url:             https://stackoverflow.com/users/12011589/atin
-    icon:            /assets/img/icons/stackoverflow.svg
-  - url:             https://www.kaggle.com/atin10
-    icon:            /assets/img/icons/mathexchange.png
+  - name:            github
+    url:             http://github.com/atin
+    icon_path:       /assets/img/icons/github.svg
+  - name:            stack-overflow
+    url:             https://stackoverflow.com/users/12011589/atin
+    icon_path:       /assets/img/icons/stackoverflow.svg
+  - name:            linkedin
+    url:             http://linkedin.com/in/atin
+    icon_path:       /assets/img/icons/linkedin.svg
+  - name:            kaggle
+    url:             https://www.kaggle.com/atin10
+    icon_path:       /assets/img/icons/kaggle.svg
 
 author:
   name:              Atin Bainada
   url:               atin.github.io
   email:             atinbainada@iitb.ac.in
 
-# theme:               theme_1017
-remote_theme:        atin/theme_1017
+
+
+
+# theme:               jekyll_theme_1017
+remote_theme:        atin/jekyll_theme_1017
 
 # Custom vars
 avatar:
   normal:            /assets/img/avatar.png
   with_mask:         /assets/img/avatar_with_mask.png
-version: 0.0.1
+
 google_analytics_id: G-E3ZB3QDST6
 
 plugins:
@@ -56,7 +63,7 @@ plugins:
   - jekyll-seo-tag
   - jemoji
   - jekyll-remote-theme
-# Dependencies
+
 markdown:            kramdown
 # highlighter:         rogue
 # permalink:           pretty
