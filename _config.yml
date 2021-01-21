@@ -48,8 +48,8 @@ author:
 
 
 
-# theme:               jekyll_theme_1017
-remote_theme:        atin/jekyll_theme_1017
+theme:               jekyll_theme_1017
+# remote_theme:        atin/jekyll_theme_1017
 
 # Custom vars
 avatar:
@@ -57,6 +57,8 @@ avatar:
   with_mask:         /assets/img/avatar_with_mask.png
 
 google_analytics_id: G-E3ZB3QDST6
+
+exclude: [vendor]
 
 plugins:
   - jekyll-feed
