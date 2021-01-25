@@ -7,4 +7,3 @@ layout: page
 - [Terminology](./terminology)
 - [The OSI Model](./osi_model)
 - [All notes](./latex/main.pdf) (PDF)
--
