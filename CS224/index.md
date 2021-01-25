@@ -6,4 +6,5 @@ layout: page
 - [Logistics](./logistics)
 - [Terminology](./terminology)
 - [The OSI Model](./osi_model)
-- [Line Coding](./latex/main.pdf)
+- [All notes](./latex/main.pdf) (PDF)
+-

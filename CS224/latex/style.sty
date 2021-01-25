@@ -2,7 +2,8 @@
 \usepackage{bbm}
 \usepackage{enumerate}
 \usepackage[tmargin=1in, bmargin=1in, lmargin=0.75in, rmargin=0.75in]{geometry}
-\usepackage[colorlinks]{hyperref}
+\usepackage[stable]{footmisc}
+\usepackage[linktocpage, colorlinks]{hyperref}
 \usepackage{tikz}
 \usetikzlibrary{arrows}
 \usepackage{mathtools}
@@ -21,11 +22,14 @@
 \SetArgSty{textup}
 
 \usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\renewcommand{\subsectionmark}[1]{\markright{#1}}
+\fancyhf{}
 \lhead{\sffamily{CS 224 | Computer Networks}}
 \chead{\sffamily{Atin Bainada}}
-\rhead{\sffamily{Lec. 4 | Line Codings}}
+\rhead{\sffamily{\rightmark}}
 \cfoot{\thepage}
-\pagestyle{fancy}
 
 \setcounter{tocdepth}{3}
 \setlength\parindent{0pt}
