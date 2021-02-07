@@ -3,7 +3,8 @@ title: CS 224 - Computer Networks
 layout: page
 ---
 
-- [Logistics](./logistics)
-- [Terminology](./terminology)
-- [The OSI Model](./osi_model)
-- [All notes](./latex/main.pdf) (PDF)
+- [Logistics](logistics)
+- [Terminology](terminology)
+- [The OSI Model](osi_model)
+- [Line Coding](line_coding)
+- [Framing](framing)

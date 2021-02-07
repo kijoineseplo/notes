@@ -1,9 +1,7 @@
 ---
 title: Reinforcement Learning
-output: pdf_document
+layout: post
 ---
-
-# Reinforcement Learning Notes
 
 ## K-Bandit Problem
 
