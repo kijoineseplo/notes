@@ -8,3 +8,5 @@ layout: page
 - [The OSI Model](osi_model)
 - [Line Coding](line_coding)
 - [Framing](framing)
+
+Some [extra notes](extra) related to the course.

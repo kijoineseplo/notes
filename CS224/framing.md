@@ -81,4 +81,20 @@ It's addition is same as **logical XOR** and multiplication is same as **logical
 
 #### Generating a CRC
 
-For generating a CRC code we need a generator polynomial. We divide the data sequence with this generator polynomial and the remainder of this division is the CRC code. 
+For generating a CRC code we need a generator polynomial. We divide the data sequence with this generator polynomial and the remainder of this division is the CRC code.
+
+Here is an example.
+
+<div style="text-align: center; box-shadow: 0 0 10px 2px rgb(0,0,0,0.1); border-radius: 10px;">
+  <img src="./img/crc_gen.png" alt="crc_gen" width="95%">
+</div>
+
+##### Single bit errors
+
+This is the simplest error-detection system. Intuitively for detecting 1 bit error we just need to check the parity of number of bits equal to 0 (or 1). If there is a 1 bit error than the number of bits equal to 0 (or 1) will change by $$\pm 1$$. Hence we can detect single bit error using a parity bit that is equal to XOR ($$\oplus$$) of all the bits in the data.
+
+For generating CRC for single bit error the generator polynomial is $$x+$$ and the CRC is called CRC-1.
+
+##### Two bit error
+
+
