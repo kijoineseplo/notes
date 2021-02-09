@@ -234,6 +234,21 @@
 
 <p>For generating a CRC code we need a generator polynomial. We divide the data sequence with this generator polynomial and the remainder of this division is the CRC code.</p>
 
+<p>Here is an example.</p>
+
+<div style="text-align: center; box-shadow: 0 0 10px 2px rgb(0,0,0,0.1); border-radius: 10px;">
+  <img src="./img/crc_gen.png" alt="crc_gen" width="95%" />
+</div>
+
+<h5 id="single-bit-errors">Single bit errors</h5>
+
+<p>This is the simplest error-detection system. Intuitively for detecting 1 bit error we just need to check the parity of number of bits equal to 0 (or 1). If there is a 1 bit error than the number of bits equal to 0 (or 1) will change by \(\pm 1\). Hence we can detect single bit error using a parity bit that is equal to XOR (\(\oplus\)) of all the bits in the data.</p>
+
+<p>For generating CRC for single bit error the generator polynomial is \(x+\) and the CRC is called CRC-1.</p>
+
+<h5 id="two-bit-error">Two bit error</h5>
+
+
 </div>
 
 
