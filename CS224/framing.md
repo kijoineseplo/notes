@@ -89,12 +89,14 @@ Here is an example.
   <img src="./img/crc_gen.png" alt="crc_gen" width="95%">
 </div>
 
-##### Single bit errors
+##### One (any odd number) bit errors
 
 This is the simplest error-detection system. Intuitively for detecting 1 bit error we just need to check the parity of number of bits equal to 0 (or 1). If there is a 1 bit error than the number of bits equal to 0 (or 1) will change by $$\pm 1$$. Hence we can detect single bit error using a parity bit that is equal to XOR ($$\oplus$$) of all the bits in the data.
 
 For generating CRC for single bit error the generator polynomial is $$x+$$ and the CRC is called CRC-1.
 
-##### Two bit error
+This also works for any odd number of errors because then also the parity changes.
+
+<!-- TODO: Add "two bit errors" section here -->
 
 
