@@ -7,6 +7,8 @@ layout: page
 - [Terminology](terminology)
 - [The OSI Model](osi_model)
 - [Line Coding](line_coding)
-- [Framing](framing)
+- [Error Detection](error_detection)
+<!-- - [Framing](framing) -->
 
-Some [extra notes](extra) related to the course.
+
+Some [references](references) and [extra notes](extra) related to the course.
