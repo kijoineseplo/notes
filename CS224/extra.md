@@ -4,6 +4,7 @@ layout: post
 ---
 
 ## Some extra (course related) notes
+
 Also check out some [references](references) if you want to learn more.
 
 ### Hamming codes and error correction

@@ -108,3 +108,9 @@ There are 3 types of ARQ protocols
 - [Selective Repeat/Reject ARQ](https://en.wikipedia.org/wiki/Selective_Repeat_ARQ)
 
 Also known as Automatic Repeat Query. WiFi uses ARQ.
+
+##### State Diagrams
+
+--------------------------------**_TODO_**--------------------------------
+
+<!-- TODO: Add "two bit errors" section here -->
