@@ -155,6 +155,7 @@
   <h1 class="post-title">CS 224 - Computer Networks</h1>
   <span class="post-date"></span>
   <h2 id="error-detection">Error Detection</h2>
+
 <h3 id="cyclic-redundancy-check-crc">Cyclic Redundancy Check (CRC)</h3>
 
 <p>Cyclic redundancy check is an error detecting code used in networks and storage devices to detect bit errors in the raw data. CRCs are so called because the check (data verification) value is a redundancy and the algorithm is based on <a href="https://en.wikipedia.org/wiki/Cyclic_code">cyclic codes</a>.</p>
@@ -234,8 +235,10 @@
 <p>This also works for any odd number of errors because then also the parity changes.</p>
 
 <h5 id="two-bit-errors">Two bit errors</h5>
-<p>——————————–<strong><em>TODO</em></strong>——————————–
-<!-- TODO: Add "two bit errors" section here --></p>
+
+<p>——————————–<strong><em>TODO</em></strong>——————————–</p>
+
+<!-- TODO: Add "two bit errors" section here -->
 
 <h5 id="burst-of-errors">Burst of errors</h5>
 
@@ -243,9 +246,21 @@
 
 <p>A degree \(n\) polynomial that have \(x^0=1\) as a term, cannot divide any polynomial, except itself, with degree \(\leq n\). All CRCs polynomial have \(x^0=1\) as a term, hence a \(n\)-bit CRC can detect all burst errors of length of \(n+1\), except itself.</p>
 
-<h3 id="automatic-repeat-request-arq">Automatic Repeat Request (ARQ)</h3>
-<p>Also known as Automatic Repeat Query</p>
+<h3 id="arq-and-state-diagrams">ARQ and State Diagrams</h3>
 
+<h4 id="automatic-repeat-request">Automatic Repeat Request</h4>
+
+<p>It is an error-control method for data transmission that uses acknowledgements and timeouts to achieve reliable data transmission over unreliable communication channels. If the sender does not receiver an acknowledgement before timeout, it retransmit the packet until it receives an acknowledgement.</p>
+
+<p>There are 3 types of ARQ protocols</p>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Stop-and-wait_ARQ">Stop and Wait ARQ</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Go-Back-N_ARQ">Go Back-N ARQ</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Selective_Repeat_ARQ">Selective Repeat/Reject ARQ</a></li>
+</ul>
+
+<p>Also known as Automatic Repeat Query. WiFi uses ARQ.</p>
 
 </div>
 
