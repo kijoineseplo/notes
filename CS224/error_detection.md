@@ -4,6 +4,7 @@ layout: post
 ---
 
 ## Error Detection
+
 ### Cyclic Redundancy Check (CRC)
 
 Cyclic redundancy check is an error detecting code used in networks and storage devices to detect bit errors in the raw data. CRCs are so called because the check (data verification) value is a redundancy and the algorithm is based on [cyclic codes](https://en.wikipedia.org/wiki/Cyclic_code).
@@ -83,7 +84,9 @@ For generating CRC for single bit error the generator polynomial is $$x+$$ and t
 This also works for any odd number of errors because then also the parity changes.
 
 ##### Two bit errors
---------------------------------***TODO***--------------------------------
+
+--------------------------------**_TODO_**--------------------------------
+
 <!-- TODO: Add "two bit errors" section here -->
 
 ##### Burst of errors
@@ -92,7 +95,16 @@ A $$n$$-bit CRC can detect all burst errors of length of $$n+1$$ except for one 
 
 A degree $$n$$ polynomial that have $$x^0=1$$ as a term, cannot divide any polynomial, except itself, with degree $$\leq n$$. All CRCs polynomial have $$x^0=1$$ as a term, hence a $$n$$-bit CRC can detect all burst errors of length of $$n+1$$, except itself.
 
-### Automatic Repeat Request (ARQ)
-Also known as Automatic Repeat Query
+### ARQ and State Diagrams
 
+#### Automatic Repeat Request
 
+It is an error-control method for data transmission that uses acknowledgements and timeouts to achieve reliable data transmission over unreliable communication channels. If the sender does not receiver an acknowledgement before timeout, it retransmit the packet until it receives an acknowledgement.
+
+There are 3 types of ARQ protocols
+
+- [Stop and Wait ARQ](https://en.wikipedia.org/wiki/Stop-and-wait_ARQ)
+- [Go Back-N ARQ](https://en.wikipedia.org/wiki/Go-Back-N_ARQ)
+- [Selective Repeat/Reject ARQ](https://en.wikipedia.org/wiki/Selective_Repeat_ARQ)
+
+Also known as Automatic Repeat Query. WiFi uses ARQ.
